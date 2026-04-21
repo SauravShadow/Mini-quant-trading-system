@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.15)
+project(cpp_engine LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+file(GLOB_RECURSE SRC_FILES "src/*.cpp" "src/*.hpp")
+add_executable(cpp_engine ${SRC_FILES})
+target_include_directories(cpp_engine PRIVATE include)
+
+find_package(CURL REQUIRED)
+target_link_libraries(cpp_engine CURL::libcurl)
